@@ -30,7 +30,9 @@ def parse_regfile(path: str) -> dict:
     parser = configparser.ConfigParser()
     parser.optionxform = str
     parser.read_string(raw_ini)
-    section_re = re.compile(r'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys\\[0-9a-f]+\\([0-9a-f]+)')
+    section_re = re.compile(
+        r'HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\BTHPORT\\Parameters\\Keys\\[0-9a-f]+\\([0-9a-f]+)'
+    )
     for section in parser.sections():
         result = section_re.match(section)
         if result:

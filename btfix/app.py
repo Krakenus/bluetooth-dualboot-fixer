@@ -43,7 +43,7 @@ def parse_argv():
     )
     options = parser.parse_args()
     if not options.inplace and not options.output:
-        raise ArgumentException(f'--inplace or --ourput must be set')
+        raise ArgumentException('--inplace or --ourput must be set')
     return options
 
 
